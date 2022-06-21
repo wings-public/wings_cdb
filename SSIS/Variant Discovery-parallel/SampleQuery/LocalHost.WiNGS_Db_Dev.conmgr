@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalHost.WiNGS_Db_Dev"
+  DTS:DTSID="{30EA0ED8-BA3B-494E-A758-540EDB0752F0}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=.;Initial Catalog=WiNGS_Db_Dev;Integrated Security=True;Application Name=SSIS-SampleQuery-{30EA0ED8-BA3B-494E-A758-540EDB0752F0}LocalHost.WiNGS_Db_Dev;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="134.58.63.5.WiNGS_Db_Dev.usr_wings"
+  DTS:DTSID="{2D130AAF-0B32-4A70-9226-AA85452DDB08}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=134.58.63.5;User ID=usr_wings;Initial Catalog=WiNGS_Db_Dev;Persist Security Info=True;Application Name=SSIS-SampleQuery-{2D130AAF-0B32-4A70-9226-AA85452DDB08}134.58.63.5.WiNGS_Db_Dev.usr_wings;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,18 @@
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\bin\Debug\PubMedAPI.dacpac
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\bin\Debug\PubMedAPI.dll
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\bin\Debug\PubMedAPI.pdb
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\obj\Debug\Model.xml
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\obj\Debug\refactor.xml
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\obj\Debug\postdeploy.sql
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\obj\Debug\predeploy.sql
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\obj\Debug\PubMedAPI.dll
+C:\Users\Administrator\Documents\Visual Studio 2017\Projects\PubMedAPI\PubMedAPI\obj\Debug\PubMedAPI.pdb
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\bin\Debug\PubMedAPI.dacpac
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\bin\Debug\PubMedAPI.dll
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\bin\Debug\PubMedAPI.pdb
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\obj\Debug\Model.xml
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\obj\Debug\refactor.xml
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\obj\Debug\postdeploy.sql
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\obj\Debug\predeploy.sql
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\obj\Debug\PubMedAPI.dll
+C:\Users\Administrator\Documents\projects\PubMedAPI\PubMedAPI\obj\Debug\PubMedAPI.pdb

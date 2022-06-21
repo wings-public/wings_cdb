@@ -1,0 +1,2603 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/12/2020 3:58:35 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="NASIMSHABAN8DD4"
+  DTS:CreatorName="NASIMSHABAN8DD4\nasim"
+  DTS:DTSID="{3A6C8A2D-0A04-467D-AE45-E843429C1AAF}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.170"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="217"
+  DTS:VersionGUID="{01613FC9-EC79-454D-844F-98E4DB7724BB}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.WiNGS_Db_Dev]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{2EC58DBB-656C-4C4C-9181-0D1D8789104B}"
+      DTS:ObjectName="LocalHost.WiNGS_Db_Dev">
+      <DTS:PropertyExpression
+        DTS:Name="InitialCatalog">@[$Project::NgslDbWiNGS_InitialCatalog]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=WiNGS_Db_Dev;Integrated Security=True;Application Name=SSIS-Package-{2EC58DBB-656C-4C4C-9181-0D1D8789104B}LocalHost.WiNGS_Db_Dev;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:PackageParameters>
+    <DTS:PackageParameter
+      DTS:CreationName=""
+      DTS:DataType="8"
+      DTS:DTSID="{35AAFB43-1B52-4057-A5BF-4A2A80DCD876}"
+      DTS:ObjectName="List_of_progressState_items_ADOReadyToProcessSqlCommand">
+      <DTS:Property
+        DTS:DataType="8"
+        DTS:Name="ParameterValue">SELECT TblName, PId, Batch, LastBatch, State, UserId, CenterId, HostId 
+FROM  Tbl_Filter_Result_SingleSample_Batch_Tracking
+WHERE (State = 'preprogress')</DTS:Property>
+    </DTS:PackageParameter>
+  </DTS:PackageParameters>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E89071D6-8F86-439B-9AFE-0CCF087ECC8F}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="Batch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5D740B52-51EE-46ED-BE60-4DD4938376E5}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CenterId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{CCA5C77F-083D-45E8-B82E-26DD7B1A59A3}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="HostId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{54ED0871-B42C-422E-A54F-1FDB464BCEE6}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="LastBatch">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7A22A5D3-5CE6-4320-BD98-F4D961630358}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="PId">
+      <DTS:VariableValue
+        DTS:DataType="20">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BA3B9745-5D22-4B1D-87BE-1E45CCE196A3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="State">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{DBE99780-65E7-4C82-B2B5-97B743EE5544}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="States">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{4C142CC0-415B-4F75-8342-51B57CC6017E}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="TblName">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{AAD822E7-75E1-4EFD-864C-A987BE0B08C8}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="UserId">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{191398FF-2603-473C-8A47-B8682812522B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Variable">
+      <DTS:VariableValue
+        DTS:DataType="8">HostId</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ExecSqlTask_ChangeState_To_Preprogress"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{862F314C-4A36-4B8D-B0E3-BA1F0FD9143B}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ExecSqlTask_ChangeState_To_Preprogress"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2EC58DBB-656C-4C4C-9181-0D1D8789104B}"
+          SQLTask:SqlStatementSource="Update Tbl_Filter_Result_SingleSample_Batch_Tracking SET &#xA;&#x9; [State] =  'preprogress'&#xA;&#x9; where [State] LIKE '%ready%'" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{7356F7E4-FE49-4647-AEA8-9119FB2A1BB4}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{E3CB85C0-1FA0-4AEF-AF21-7BBA87FE45B5}"
+        DTS:ObjectName="{E3CB85C0-1FA0-4AEF-AF21-7BBA87FE45B5}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateRowsInFirstTable"
+            VarName="User::States" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\ExecSqlTask_ChangeState_From_Preprogress_To_Progress"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:Description="Execute SQL Task"
+          DTS:DTSID="{2C82A166-071D-488F-A589-DDDCE9EF5B6A}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="ExecSqlTask_ChangeState_From_Preprogress_To_Progress"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{2EC58DBB-656C-4C4C-9181-0D1D8789104B}"
+              SQLTask:SqlStatementSource="&#xA;Update Tbl_Filter_Result_SingleSample_Batch_Tracking SET &#xA; [State] =  'progress'&#xA;where [State] = 'preprogress' AND &#xA;TblName = @TblName AND &#xA;PId = @PId AND &#xA;Batch = @Batch AND&#xA;UserId = @UserId  AND &#xA;CenterId= @CenterId &#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="TblName"
+                SQLTask:DtsVariableName="User::TblName"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="16"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="PId"
+                SQLTask:DtsVariableName="User::PId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="12"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="Batch"
+                SQLTask:DtsVariableName="User::Batch"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="UserId"
+                SQLTask:DtsVariableName="User::UserId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="CenterId"
+                SQLTask:DtsVariableName="User::CenterId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="HostId"
+                SQLTask:DtsVariableName="User::HostId"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="11"
+                SQLTask:ParameterSize="-1" />
+            </SQLTask:SqlTaskData>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Script Task"
+          DTS:CreationName="Microsoft.ScriptTask"
+          DTS:Description="Script Task"
+          DTS:DTSID="{55958B1F-8563-435C-A0FA-EC54E5B35E23}"
+          DTS:ExecutableType="Microsoft.ScriptTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Script Task"
+          DTS:ThreadHint="0">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ScriptProject
+              Name="ST_df35333bfd6f44558dd6ea39f8643314"
+              VSTAMajorVersion="15"
+              VSTAMinorVersion="0"
+              Language="CSharp"
+              ReadOnlyVariables="User::Batch,User::CenterId,User::HostId,User::LastBatch,User::PId,User::States,User::TblName,User::UserId">
+              <ProjectItem
+                Name="Properties\Settings.settings"
+                Encoding="UTF8"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.resx"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></ProjectItem>
+              <ProjectItem
+                Name="ScriptMain.cs"
+                Encoding="UTF8"><![CDATA[
+#region Help:  Introduction to the script task
+/* The Script Task allows you to perform virtually any operation that can be accomplished in
+ * a .Net application within the context of an Integration Services control flow. 
+ * 
+ * Expand the other regions which have "Help" prefixes for examples of specific ways to use
+ * Integration Services features within this script task. */
+#endregion
+
+
+#region Namespaces
+using System;
+using System.Data;
+using Microsoft.SqlServer.Dts.Runtime;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Data.OleDb;
+using System.Net;
+using System.IO;
+using Newtonsoft.Json.Linq;
+#endregion
+
+namespace ST_df35333bfd6f44558dd6ea39f8643314
+{
+    /// <summary>
+    /// ScriptMain is the entry point class of the script.  Do not change the name, attributes,
+    /// or parent of this class.
+    /// </summary>
+	[Microsoft.SqlServer.Dts.Tasks.ScriptTask.SSISScriptTaskEntryPointAttribute]
+	public partial class ScriptMain : Microsoft.SqlServer.Dts.Tasks.ScriptTask.VSTARTScriptObjectModelBase
+	{
+
+        #region Help:  Using Integration Services variables and parameters in a script
+        /* To use a variable in this script, first ensure that the variable has been added to 
+         * either the list contained in the ReadOnlyVariables property or the list contained in 
+         * the ReadWriteVariables property of this script task, according to whether or not your
+         * code needs to write to the variable.  To add the variable, save this script, close this instance of
+         * Visual Studio, and update the ReadOnlyVariables and 
+         * ReadWriteVariables properties in the Script Transformation Editor window.
+         * To use a parameter in this script, follow the same steps. Parameters are always read-only.
+         * 
+         * Example of reading from a variable:
+         *  DateTime startTime = (DateTime) Dts.Variables["System::StartTime"].Value;
+         * 
+         * Example of writing to a variable:
+         *  Dts.Variables["User::myStringVariable"].Value = "new value";
+         * 
+         * Example of reading from a package parameter:
+         *  int batchId = (int) Dts.Variables["$Package::batchId"].Value;
+         *  
+         * Example of reading from a project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].Value;
+         * 
+         * Example of reading from a sensitive project parameter:
+         *  int batchId = (int) Dts.Variables["$Project::batchId"].GetSensitiveValue();
+         * */
+
+        #endregion
+
+        #region Help:  Firing Integration Services events from a script
+        /* This script task can fire events for logging purposes.
+         * 
+         * Example of firing an error event:
+         *  Dts.Events.FireError(18, "Process Values", "Bad value", "", 0);
+         * 
+         * Example of firing an information event:
+         *  Dts.Events.FireInformation(3, "Process Values", "Processing has started", "", 0, ref fireAgain)
+         * 
+         * Example of firing a warning event:
+         *  Dts.Events.FireWarning(14, "Process Values", "No values received for input", "", 0);
+         * */
+        #endregion
+
+        #region Help:  Using Integration Services connection managers in a script
+        /* Some types of connection managers can be used in this script task.  See the topic 
+         * "Working with Connection Managers Programatically" for details.
+         * 
+         * Example of using an ADO.Net connection manager:
+         *  object rawConnection = Dts.Connections["Sales DB"].AcquireConnection(Dts.Transaction);
+         *  SqlConnection myADONETConnection = (SqlConnection)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Sales DB"].ReleaseConnection(rawConnection);
+         *
+         * Example of using a File connection manager
+         *  object rawConnection = Dts.Connections["Prices.zip"].AcquireConnection(Dts.Transaction);
+         *  string filePath = (string)rawConnection;
+         *  //Use the connection in some code here, then release the connection
+         *  Dts.Connections["Prices.zip"].ReleaseConnection(rawConnection);
+         * */
+        #endregion
+
+
+        /// <summary>
+        /// This method is called when this script task executes in the control flow.
+        /// Before returning from this method, set the value of Dts.TaskResult to indicate success or failure.
+        /// To open Help, press F1.
+        /// </summary>
+        /// 
+
+        string geneAnnot_list;
+
+        static ScriptMain()
+        {
+           // AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(CurrentDomain_AssemblyResolve);
+        }
+        //static System.Reflection.Assembly CurrentDomain_AssemblyResolve(object sender, ResolveEventArgs args)
+        //{
+        //    if (args.Name.ToUpper().Contains("NEWTONSOFT"))
+        //    {
+        //        string path = @"\net45\";
+        //        return System.Reflection.Assembly.LoadFile(System.IO.Path.Combine(path, "Newtonsoft.Json.dll"));
+        //    }
+        //    return null;
+        //}
+
+        public SqlConnection connectionstring()
+        {
+            SqlConnection myADONETConnection = new SqlConnection();
+
+            myADONETConnection = (SqlConnection)(Dts.Connections["LocalHost.WiNGS_Db_Dev"].AcquireConnection(Dts.Transaction) as SqlConnection);
+            return myADONETConnection;
+        }
+
+        public void Main()
+		{
+            string batch = Dts.Variables["User::Batch"].Value.ToString();
+            string lastBatch = Dts.Variables["User::LastBatch"].Value.ToString();
+            string centerId = Dts.Variables["User::CenterId"].Value.ToString();
+            string userId = Dts.Variables["User::UserId"].Value.ToString();
+            string PId = Dts.Variables["User::PId"].Value.ToString();
+            string tblName = Dts.Variables["User::TblName"].Value.ToString();
+            string hostId = Dts.Variables["User::HostId"].Value.ToString();
+
+            ////int counter = Dts.Variables["User::States"].
+            //dynamic result = Dts.Variables["User::States"].Value;
+            // int rowCount = Convert.ToInt32(result.RecordCount);
+            //int rowCount = result.RecordCount;
+            //User::States,
+
+            string Token, Url;
+            Token = GetToken(Convert.ToInt32(userId), Convert.ToInt32(centerId), Convert.ToInt32(hostId));
+            //Token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiVUFBcGlVc2VyIiwiZXhwIjoxNTk0MjEzMzkxLCJhdWRpZW5jZSI6ImF1dGhfdXNlciIsImlhdCI6MTU5NDEyNjk5MX0.XQ8gWGp8aevkW1dkItWpvnVziRAHO7PM5i9b9BoCpP4";
+            Url = GetURL(Convert.ToInt32(centerId), Convert.ToInt32(hostId), "queryBatch/" + PId + "/" + batch);
+            //Url = "https://wings-ua-dev.biomina.be/dev/queryBatch/32298/1";
+
+            CallAPI(Url, Token, tblName, Convert.ToInt32(batch), Convert.ToInt64(PId), Convert.ToInt32(userId), Convert.ToInt32(centerId), Convert.ToInt32(hostId));
+            
+            
+            //List<string> readyToProcessTmpTblList = new List<string>();
+            //OleDbDataAdapter dtAdapter = new OleDbDataAdapter();
+            //DataTable readyToProcessDataTable = new DataTable();
+            ////populate data table
+            //dtAdapter.Fill(readyToProcessDataTable, Dts.Variables["User::States"].Value);
+            //int rowCount = readyToProcessDataTable.Rows.Count;
+            //Console.WriteLine("row count is: " + rowCount);
+            //foreach (DataRow dr in readyToProcessDataTable.Rows)
+            //{
+            //    //either access server names from column index 0 of DataRow or add to list
+            //    readyToProcessTmpTblList.Add(dr[0].ToString());
+            //}
+
+
+            Dts.TaskResult = (int)ScriptResults.Success;
+        }
+
+        int batchDef, lastBatchDef;
+
+        void CallAPI(string url, string authToken, string tblName, int batch, Int64 pId, int userId, int centerId, int hostId)
+        {
+            List<Document> documents = null;
+
+            //ServicePointManager.Expect100Continue = true;
+            //ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls12 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11;
+            // Skip validation of SSL/TLS certificate
+            //ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create(url);
+            req.Method = "GET";
+            req.ContentType = "application/json";
+            req.Headers["Authorization"] = authToken;
+
+
+            HttpWebResponse resp = req.GetResponse() as HttpWebResponse;
+            Stream newStream = resp.GetResponseStream();
+            //StreamReader sr = new StreamReader(newStream);
+
+            using (StreamReader sr = new StreamReader(newStream))
+            {
+                //while (sr.Peek() >= 0)
+                //{
+                var jsonTextReader = new Newtonsoft.Json.JsonTextReader(sr);
+                string record = sr.ReadLine();
+                Root records = Newtonsoft.Json.JsonConvert.DeserializeObject<Root>(record);
+
+                batchDef = records.batch;
+                lastBatchDef = records.lastBatch;
+                documents = records.documents;
+                //}
+            }
+            if (documents != null)
+            {
+                DataTable DTbl = new DataTable();
+                DTbl.Columns.Add("@_id", typeof(String));
+                DTbl.Columns.Add("@FileID", typeof(Int64));
+                DTbl.Columns.Add("@v_type", typeof(String));
+                DTbl.Columns.Add("@non_variant", typeof(String));
+                DTbl.Columns.Add("@vcf_chr", typeof(String));
+                DTbl.Columns.Add("@chr", typeof(Int32));
+                DTbl.Columns.Add("@start_pos", typeof(Int64));
+                DTbl.Columns.Add("@stop_pos", typeof(Int64));
+                DTbl.Columns.Add("@ref_all", typeof(String));
+                DTbl.Columns.Add("@alt_all", typeof(String));
+                DTbl.Columns.Add("@multi_allelic", typeof(String));
+                DTbl.Columns.Add("@phred_polymorphism", typeof(String));
+                DTbl.Columns.Add("@filter", typeof(String));
+                DTbl.Columns.Add("@alt_cnt", typeof(String));
+                DTbl.Columns.Add("@ref_depth", typeof(String));
+                DTbl.Columns.Add("@alt_depth", typeof(String));
+                DTbl.Columns.Add("@phred_genotype", typeof(String));
+                DTbl.Columns.Add("@mapping_quality", typeof(String));
+                DTbl.Columns.Add("@base_q_ranksum", typeof(String));
+                DTbl.Columns.Add("@mapping_q_ranksum", typeof(String));
+                DTbl.Columns.Add("@read_pos_ranksum", typeof(String));
+                DTbl.Columns.Add("@strand_bias", typeof(String));
+                DTbl.Columns.Add("@quality_by_depth", typeof(String));
+                DTbl.Columns.Add("@fisher_strand", typeof(String));
+                DTbl.Columns.Add("@vqslod", typeof(String));
+                DTbl.Columns.Add("@gt_ratio", typeof(String));
+                DTbl.Columns.Add("@ploidy", typeof(String));
+                DTbl.Columns.Add("@somatic_state", typeof(String));
+                DTbl.Columns.Add("@delta_pl", typeof(String));
+                DTbl.Columns.Add("@stretch_lt_a", typeof(String));
+                DTbl.Columns.Add("@stretch_lt_b", typeof(String));
+                DTbl.Columns.Add("@gene_annotations", typeof(String));
+                DTbl.Columns.Add("@gnomAD", typeof(String));
+                DTbl.Columns.Add("@CLNSIG", typeof(String));
+                DTbl.Columns.Add("@GENEINFO", typeof(String));
+                DTbl.Columns.Add("@phred_score", typeof(String));
+
+
+                List<gene_annotations> geneAnnot;
+                GnomAD gAD;
+
+                for (int i = 0; i <= documents.Count - 1; i++)
+                {
+                    geneAnnot_list = null;
+
+                    if (ToJSON(documents[i].gnomAD).Length == 0)
+                    {
+                        gAD = new GnomAD()
+                        {
+                            AN_ASJ = "NaN",
+                            AF_ASJ = "NaN",
+                            AN_AFR = "NaN",
+                            AF_AFR = "NaN",
+                            AN_OTH = "NaN",
+                            AF_OTH = "NaN",
+                            AN_AMR = "NaN",
+                            AF_AMR = "NaN",
+                            AN_FIN = "NaN",
+                            AF_FIN = "NaN",
+                            AN_EAS = "NaN",
+                            AF_EAS = "NaN",
+                            AN_NFE = "NaN",
+                            AF_NFE = "NaN",
+                            AN = "NaN",
+                            AF = "NaN",
+                            AN_Female = "NaN",
+                            AF_Female = "NaN",
+                            AN_Male = "NaN",
+                            AF_Male = "NaN",
+                            FILTER = "NaN"
+                        };
+                    }
+                    else
+                    {
+                        gAD = documents[i].gnomAD;
+                    }
+
+
+                    if (ToJSON(documents[i].gene_annotations) == "null")
+                    {
+                        geneAnnot = new List<gene_annotations>()
+                               {
+                                   new gene_annotations()
+                                   {
+                                       transcript_id = "NaN",
+                                        impact = "NaN",
+                                        codons = "NaN",
+                                        gene_id = "NaN",
+                                        csn = "NaN",
+                                        consequence_terms = new List<string>()
+                                                            { "NaN ," }
+                                   }
+                        };
+                    }
+
+                    else
+                    {
+                        geneAnnot = documents[i].gene_annotations;
+
+                    }
+                    foreach (var item in geneAnnot)
+                    {
+                        geneAnnot_list += ToJSON(item) + ",";
+                    }
+
+                    IDictionary<string, JToken> dictionary = JObject.Parse(ToJSON(documents[i]).ToString());
+                    //if (dictionary.ContainsKey("CLNSIG"))
+
+
+                    DTbl.Rows.Add(
+                       documents[i]._id, documents[i].FileID,
+                        documents[i].v_type,
+                        documents[i].non_variant,
+                       documents[i].vcf_chr,
+                       documents[i].chr,
+                        documents[i].start_pos, documents[i].stop_pos,
+                        documents[i].ref_all, documents[i].alt_all,
+                        documents[i].multi_allelic,
+                        documents[i].phred_polymorphism,
+                        documents[i].filter,
+                        documents[i].alt_cnt, documents[i].ref_depth, documents[i].alt_depth, documents[i].phred_genotype,
+                        documents[i].mapping_quality, documents[i].base_q_ranksum, documents[i].mapping_q_ranksum,
+                        documents[i].read_pos_ranksum,
+                        documents[i].strand_bias,
+                        documents[i].quality_by_depth,
+                        documents[i].fisher_strand,
+                        documents[i].vqslod,
+                        documents[i].gt_ratio, documents[i].ploidy,
+                        documents[i].somatic_state, documents[i].delta_pl, documents[i].stretch_lt_a,
+                        documents[i].stretch_lt_b,
+                        ( geneAnnot_list == null ? "NaN" : geneAnnot_list.Length < 1 ? geneAnnot_list : geneAnnot_list.Remove(geneAnnot_list.ToString().LastIndexOf(","), ",".Length) ),
+                        //(geneAnnot_list.Length < 1 ? geneAnnot_list : geneAnnot_list.Remove(geneAnnot_list.ToString().LastIndexOf(","), ",".Length)),
+                         //ToJSON(documents[i].gnomAD),
+                         ToJSON(gAD),
+                         (dictionary.ContainsKey("CLNSIG") ? documents[i].CLNSIG : "NaN"),
+                         (dictionary.ContainsKey("GENEINFO") ? documents[i].GENEINFO : "NaN"),
+                         //documents[i].CLNSIG,
+                         //documents[i].GENEINFO,
+                         documents[i].phred_score
+                        );
+                }
+                
+                 
+                if (connectionstring().State == ConnectionState.Closed)
+                    connectionstring().Open();
+
+                try
+                {
+                    using (SqlBulkCopy s = new SqlBulkCopy(connectionstring()))
+                    {
+                        s.DestinationTableName = "[WiNGS_Data_Db].[dbo].[" + Dts.Variables["User::TblName"].Value.ToString() + "]";
+                        s.WriteToServer(DTbl);
+                        s.Close();
+
+                    }
+
+                    SqlCommand cmd = new SqlCommand("Sp_Filter_Result_SingleSample_Status_Done_Upd", connectionstring());
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter SqlDataAdptrCmd = new SqlDataAdapter();
+                    SqlParameterCollection SqlParCol = default(SqlParameterCollection);
+                    SqlDataAdptrCmd.SelectCommand = cmd;
+                    SqlParCol = cmd.Parameters;
+
+                    SqlParCol.Add(new SqlParameter("@TblName", SqlDbType.NVarChar, 100));
+                    SqlParCol.Add(new SqlParameter("@PId", SqlDbType.BigInt));
+                    SqlParCol.Add(new SqlParameter("@Batch", SqlDbType.Int));
+                    SqlParCol.Add(new SqlParameter("@LastBatch", SqlDbType.Int));
+                    SqlParCol.Add(new SqlParameter("@UserID", SqlDbType.Int));
+                    SqlParCol.Add(new SqlParameter("@CenterID", SqlDbType.Int));
+                    SqlParCol.Add(new SqlParameter("@HostID", SqlDbType.Int));
+
+                    SqlParCol["@TblName"].Value = tblName;
+                    SqlParCol["@PId"].Value = pId;
+                    SqlParCol["@Batch"].Value = batch;
+                    SqlParCol["@LastBatch"].Value = lastBatchDef;
+                    SqlParCol["@UserID"].Value = userId;
+                    SqlParCol["@CenterID"].Value = centerId;
+                    SqlParCol["@HostID"].Value = hostId;
+
+                    try
+                    {
+                        if (connectionstring().State == ConnectionState.Closed)
+                            connectionstring().Open();
+                        cmd.ExecuteNonQuery();
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Unable to change the status! Reeason: " + ex.Message);
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Unable to insert! Reason: " + ex.Message);
+                }
+
+            }
+        }
+
+        public string GetToken(int UserId, int CenterId, int HostId)
+        {
+            string Token;
+
+            if (connectionstring().State == ConnectionState.Closed)
+            {
+                connectionstring().Open();
+            }
+
+            SqlCommand cmd = new SqlCommand("Select dbo.Fnc_API_Token("+ UserId + ", "+ CenterId + ", " + HostId + ")", connectionstring());
+            SqlDataAdapter SqlDataAdptrCmd = new SqlDataAdapter();
+            SqlParameterCollection SqlParCol = default(SqlParameterCollection);
+            SqlDataAdptrCmd.SelectCommand = cmd;
+            SqlParCol = cmd.Parameters;
+
+            DataTable dt = new DataTable();
+            SqlDataAdptrCmd.Fill(dt);
+            Token = dt.Rows[0][0].ToString();
+
+            return Token;
+        }
+
+        string GetURL(int CenterId, int HostId, string ExtraUrl)
+        {
+            string url;
+            if (connectionstring().State == ConnectionState.Closed)
+            {
+                connectionstring().Open();
+            }
+            SqlCommand cmd = new SqlCommand("select [dbo].[Fnc_API_IPCenter](" + CenterId + ", " + HostId + ")", connectionstring());
+            SqlDataAdapter SqlDataAdptrCmd = new SqlDataAdapter();
+            SqlParameterCollection SqlParCol = default(SqlParameterCollection);
+            SqlDataAdptrCmd.SelectCommand = cmd;
+            SqlParCol = cmd.Parameters;
+
+            DataTable dt = new DataTable();
+            SqlDataAdptrCmd.Fill(dt);
+            url = dt.Rows[0][0].ToString() + ExtraUrl;
+            return url;
+        }
+
+        public static string ToJSON(object obj)
+        {
+            return Newtonsoft.Json.JsonConvert.SerializeObject(obj);
+        }
+
+        //public static string RemoveLast(this string text, string character)
+        //{
+        //    if (text.Length < 1) return text;
+        //    return text.Remove(text.ToString().LastIndexOf(character), character.Length);
+        //}
+
+        public class Root
+        {
+            public int batch { get; set; }
+            public int lastBatch { get; set; }
+            public List<Document> documents { get; set; }
+        }
+
+        public class Document
+        {
+            //    public string _id { get; set; }
+            //    public Int64 sid { get; set; }
+            //    public string v_type { get; set; }
+            //    public int non_variant { get; set; }
+            //    public string vcf_chr { get; set; }
+            //    public int chr { get; set; }
+            //    public Int64 start_pos { get; set; }
+            //    public Int64 stop_pos { get; set; }
+            //    public string ref_all { get; set; }
+            //    public string alt_all { get; set; }
+            //    public int multi_allelic { get; set; }
+            //    public double phred_polymorphism { get; set; }
+            //    public string filter { get; set; }
+            //    public int alt_cnt { get; set; }
+            //    public int ref_depth { get; set; }
+            //    public int alt_depth { get; set; }
+            //    public int phred_genotype { get; set; }
+            //    public double mapping_quality { get; set; }
+            //    public double? base_q_ranksum { get; set; }
+            //    public double? mapping_q_ranksum { get; set; }
+            //    public double? read_pos_ranksum { get; set; }
+            //    //public int strand_bias { get; set; }
+            //    public string strand_bias { get; set; }
+            //    public double quality_by_depth { get; set; }
+            //    public double fisher_strand { get; set; }
+            //    public string vqslod { get; set; }
+            //    public double gt_ratio { get; set; }
+            //    public int ploidy { get; set; }
+            //    public int somatic_state { get; set; }
+            //    public int delta_pl { get; set; }
+            //    public int stretch_lt_a { get; set; }
+            //    public int stretch_lt_b { get; set; }
+            //    public List<gene_annotations> gene_annotations { get; set; }
+            //    public GnomAD gnomAD { get; set; }
+            //    public double phred_score { get; set; }
+            //    public string CLNSIG { get; set; }
+            //    public string GENEINFO { get; set; }
+            //
+            public string _id { get; set; }
+            public Int64 FileID { get; set; }
+            private string _v_type;
+            public string v_type
+            {
+                get { return (this._v_type == null ? "NaN" : this._v_type); }
+                set { this._v_type = (value == null ? "NaN" : value); }
+            }
+            private string _non_variant;
+            public string non_variant
+            {
+                get { return (this._non_variant == null ? "NaN" : this._non_variant); }
+                set { this._non_variant = (value == null ? "NaN" : value); }
+            }
+            private string _vcf_chr;
+            public string vcf_chr
+            {
+                get { return (this._vcf_chr == null ? "NaN" : this._vcf_chr); }
+                set { this._vcf_chr = (value == null ? "NaN" : value); }
+            }
+            public int chr { get; set; }
+            public Int64 start_pos { get; set; }
+            public Int64 stop_pos { get; set; }
+            private string _ref_all;
+            public string ref_all
+            {
+                get { return (this._ref_all == null ? "NaN" : this._ref_all); }
+                set { this._ref_all = (value == null ? "NaN" : value); }
+            }
+            private string _alt_all;
+            public string alt_all
+            {
+                get { return (this._alt_all == null ? "NaN" : this._alt_all); }
+                set { this._alt_all = (value == null ? "NaN" : value); }
+            }
+
+            private string _multi_allelic;
+            public string multi_allelic
+            {
+                get { return (this._multi_allelic == null ? "NaN" : this._multi_allelic); }
+                set { this._multi_allelic = (value == null ? "NaN" : value); }
+            }
+
+            private string _phred_polymorphism;
+            public string phred_polymorphism
+            {
+                get { return (this._phred_polymorphism == null ? "NaN" : this._phred_polymorphism); }
+                set { this._phred_polymorphism = (value == null ? "NaN" : value); }
+            }
+
+            private string _filter;
+            public string filter
+            {
+                get { return (this._filter == null ? "NaN" : this._filter); }
+                set { this._filter = (value == null ? "NaN" : value); }
+            }
+
+            private string _alt_cnt;
+            public string alt_cnt
+            {
+                get { return (this._alt_cnt == null ? "NaN" : this._alt_cnt); }
+                set { this._alt_cnt = (value == null ? "NaN" : value); }
+            }
+
+            private string _ref_depth;
+            public string ref_depth
+            {
+                get { return (this._ref_depth == null ? "NaN" : this._ref_depth); }
+                set { this._ref_depth = (value == null ? "NaN" : value); }
+            }
+
+            private string _alt_depth;
+            public string alt_depth
+            {
+                get { return (this._alt_depth == null ? "NaN" : this._alt_depth); }
+                set { this._alt_depth = (value == null ? "NaN" : value); }
+            }
+
+            private string _phred_genotype;
+            public string phred_genotype
+            {
+                get { return (this._phred_genotype == null ? "NaN" : this._phred_genotype); }
+                set { this._phred_genotype = (value == null ? "NaN" : value); }
+            }
+
+            private string _mapping_quality;
+            public string mapping_quality
+            {
+                get { return (this._mapping_quality == null ? "NaN" : this._mapping_quality); }
+                set { this._mapping_quality = (value == null ? "NaN" : value); }
+            }
+
+            private string _base_q_ranksum;
+            public string base_q_ranksum
+            {
+                get { return (this._base_q_ranksum == null ? "NaN" : this._base_q_ranksum); }
+                set { this._base_q_ranksum = (value == null ? "NaN" : value); }
+            }
+
+            private string _mapping_q_ranksum;
+            public string mapping_q_ranksum
+            {
+                get { return (this._mapping_q_ranksum == null ? "NaN" : this._mapping_q_ranksum); }
+                set { this._mapping_q_ranksum = (value == null ? "NaN" : value); }
+            }
+
+            private string _read_pos_ranksum;
+            public string read_pos_ranksum
+            {
+                get { return (this._read_pos_ranksum == null ? "NaN" : this._read_pos_ranksum); }
+                set { this._read_pos_ranksum = (value == null ? "NaN" : value); }
+            }
+
+            private string _strand_bias;
+            public string strand_bias
+            {
+                get { return (this._strand_bias == null ? "NaN" : this._strand_bias); }
+                set { this._strand_bias = (value == null ? "NaN" : value); }
+            }
+
+            private string _quality_by_depth;
+            public string quality_by_depth
+            {
+                get { return (this._quality_by_depth == null ? "NaN" : this._quality_by_depth); }
+                set { this._quality_by_depth = (value == null ? "NaN" : value); }
+            }
+
+            private string _fisher_strand;
+            public string fisher_strand
+            {
+                get { return (this._fisher_strand == null ? "NaN" : this._fisher_strand); }
+                set { this._fisher_strand = (value == null ? "NaN" : value); }
+            }
+
+            private string _vqslod;
+            public string vqslod
+            {
+                get { return (this._vqslod == null ? "NaN" : this._vqslod); }
+                set { this._vqslod = (value == null ? "NaN" : value); }
+            }
+
+            private string _gt_ratio;
+            public string gt_ratio
+            {
+                get { return (this._gt_ratio == null ? "NaN" : this._gt_ratio); }
+                set { this._gt_ratio = (value == null ? "NaN" : value); }
+            }
+
+            private string _ploidy;
+            public string ploidy
+            {
+                get { return (this._ploidy == null ? "NaN" : this._ploidy); }
+                set { this._ploidy = (value == null ? "NaN" : value); }
+            }
+
+            private string _somatic_state;
+            public string somatic_state
+            {
+                get { return (this._somatic_state == null ? "NaN" : this._somatic_state); }
+                set { this._somatic_state = (value == null ? "NaN" : value); }
+            }
+
+            private string _delta_pl;
+            public string delta_pl
+            {
+                get { return (this._delta_pl == null ? "NaN" : this._delta_pl); }
+                set { this._delta_pl = (value == null ? "NaN" : value); }
+            }
+
+            private string _stretch_lt_a;
+            public string stretch_lt_a
+            {
+                get { return (this._stretch_lt_a == null ? "NaN" : this._stretch_lt_a); }
+                set { this._stretch_lt_a = (value == null ? "NaN" : value); }
+            }
+
+            private string _stretch_lt_b;
+            public string stretch_lt_b
+            {
+                get { return (this._stretch_lt_b == null ? "NaN" : this._stretch_lt_b); }
+                set { this._stretch_lt_b = (value == null ? "NaN" : value); }
+            }
+
+            public List<gene_annotations> gene_annotations { get; set; }
+                   
+
+            public GnomAD gnomAD { get; set; }
+
+            private string _phred_score;
+            public string phred_score
+            {
+                get { return (this._phred_score == null ? "NaN" : this._phred_score); }
+                set { this._phred_score = (value == null ? "NaN" : value); }
+            }
+
+            private string _CLNSIG;
+            public string CLNSIG
+            {
+                get { return (this._CLNSIG == null ? "NaN" : this._CLNSIG); }
+                set { this._CLNSIG = (value == null ? "NaN" : value); }
+            }
+
+            private string _GENEINFO;
+            public string GENEINFO
+            {
+                get { return (this._GENEINFO == null ? "NaN" : this._GENEINFO); }
+                set { this._GENEINFO = (value == null ? "NaN" : value); }
+            }
+
+        }
+
+        public class gene_annotations
+        {
+
+            //assign initial values
+            /*public void geneAnnotations_Empty()
+            {
+                this.transcript_id = "NaN";
+                this.impact = "NaN";
+                this.codons = "NaN";
+                this.gene_id = "NaN";
+                this.csn = "NaN";
+                this.consequence_terms.Add("NaN");
+            }*/
+
+            private string _transcript_id;
+            public string transcript_id
+            {
+                get { return (this._transcript_id == null ? "NaN" : this._transcript_id); }
+                set { this._transcript_id = (value == null ? "NaN" : value); }
+            } 
+            private string _impact;
+            public string impact
+            {
+                get { return (this._impact == null ? "NaN" : this._impact); }
+                set { this._impact = (value == null ? "NaN" : value); }
+            }
+            public List<string> consequence_terms { get; set; }
+            private string _codons;
+            public string codons
+            {
+                get { return (this._codons == null ? "NaN" : this._codons); }
+                set { this._codons = (value == null ? "NaN" : value); }
+            }
+            private string _gene_id;
+            public string gene_id
+            {
+                get { return (this._gene_id == null ? "NaN" : this._gene_id); }
+                set { this._gene_id = (value == null ? "NaN" : value); }
+            }
+            private string _csn;
+            public string csn
+            {
+                get { return (this._csn == null ? "NaN" : this._csn); }
+                set { this._csn = (value == null ? "NaN" : value); }
+            }
+
+        }
+
+        //public class GnomAD
+        //{
+        //    public double? AF_EAS { get; set; }
+        //    public double? AF_AFR { get; set; }
+        //    public double? AF_FIN { get; set; }
+        //    public int? AN_AMR { get; set; }
+        //    public int? AN_OTH { get; set; }
+        //    public int? AN_FIN { get; set; }
+        //    public double? AF_Male { get; set; }
+        //    public double? AF_OTH { get; set; }
+        //    public int? AN_ASJ { get; set; }
+        //    public double? AF_Female { get; set; }
+        //    public double? AF_AMR { get; set; }
+        //    public int? AN_NFE { get; set; }
+        //    public int? AN { get; set; }
+        //    public int? AN_Male { get; set; }
+        //    public string FILTER { get; set; }
+        //    public double? AF_NFE { get; set; }
+        //    public int? AN_EAS { get; set; }
+        //    public double? AF_ASJ { get; set; }
+        //    public double? AF { get; set; }
+        //    public int? AN_AFR { get; set; }
+        //    public int? AN_Female { get; set; }
+        //}
+
+        public class GnomAD
+        {
+            private string _AN_ASJ;
+            public string AN_ASJ
+            {
+                get { return (this._AN_ASJ == null ? "NaN" : this._AN_ASJ); }
+                set { this._AN_ASJ = (value == null ? "NaN" : value); }
+            }
+            private string _AF_ASJ;
+            public string AF_ASJ
+            {
+                get { return (this._AF_ASJ == null ? "NaN" : this._AF_ASJ); }
+                set { this._AF_ASJ = (value == null ? "NaN" : value); }
+            }
+            private string _AN_AFR;
+            public string AN_AFR
+            {
+                get { return (this._AN_AFR == null ? "NaN" : this._AN_AFR); }
+                set { this._AN_AFR = (value == null ? "NaN" : value); }
+            }
+            private string _AF_AFR;
+            public string AF_AFR
+            {
+                get { return (this._AF_AFR == null ? "NaN" : this._AF_AFR); }
+                set { this._AF_AFR = (value == null ? "NaN" : value); }
+            }
+            private string _AN_OTH;
+            public string AN_OTH
+            {
+                get { return (this._AN_OTH == null ? "NaN" : this._AN_OTH); }
+                set { this._AN_OTH = (value == null ? "NaN" : value); }
+            }
+            private string _AF_OTH;
+            public string AF_OTH
+            {
+                get { return (this._AF_OTH == null ? "NaN" : this._AF_OTH); }
+                set { this._AF_OTH = (value == null ? "NaN" : value); }
+            }
+            private string _AN_AMR;
+            public string AN_AMR
+            {
+                get { return (this._AN_AMR == null ? "NaN" : this._AN_AMR); }
+                set { this._AN_AMR = (value == null ? "NaN" : value); }
+            }
+            private string _AF_AMR;
+            public string AF_AMR
+            {
+                get { return (this._AF_AMR == null ? "NaN" : this._AF_AMR); }
+                set { this._AF_AMR = (value == null ? "NaN" : value); }
+            }
+            private string _AN_FIN;
+            public string AN_FIN
+            {
+                get { return (this._AN_FIN == null ? "NaN" : this._AN_FIN); }
+                set { this._AN_FIN = (value == null ? "NaN" : value); }
+            }
+            private string _AF_FIN;
+            public string AF_FIN
+            {
+                get { return (this._AF_FIN == null ? "NaN" : this._AF_FIN); }
+                set { this._AF_FIN = (value == null ? "NaN" : value); }
+            }
+            private string _AN_EAS;
+            public string AN_EAS
+            {
+                get { return (this._AN_EAS == null ? "NaN" : this._AN_EAS); }
+                set { this._AN_EAS = (value == null ? "NaN" : value); }
+            }
+            private string _AF_EAS;
+            public string AF_EAS
+            {
+                get { return (this._AF_EAS == null ? "NaN" : this._AF_EAS); }
+                set { this._AF_EAS = (value == null ? "NaN" : value); }
+            }
+            private string _AN_NFE;
+            public string AN_NFE
+            {
+                get { return (this._AN_NFE == null ? "NaN" : this._AN_NFE); }
+                set { this._AN_NFE = (value == null ? "NaN" : value); }
+            }
+            private string _AF_NFE;
+            public string AF_NFE
+            {
+                get { return (this._AF_NFE == null ? "NaN" : this._AF_NFE); }
+                set { this._AF_NFE = (value == null ? "NaN" : value); }
+            }
+            private string _AN;
+            public string AN
+            {
+                get { return (this._AN == null ? "NaN" : this._AN); }
+                set { this._AN = (value == null ? "NaN" : value); }
+            }
+            private string _AF;
+            public string AF
+            {
+                get { return (this._AF == null ? "NaN" : this._AF); }
+                set { this._AF = (value == null ? "NaN" : value); }
+            }
+            private string _AN_Female;
+            public string AN_Female
+            {
+                get { return (this._AN_Female == null ? "NaN" : this._AN_Female); }
+                set { this._AN_Female = (value == null ? "NaN" : value); }
+            }
+            private string _AF_Female;
+            public string AF_Female
+            {
+                get { return (this._AF_Female == null ? "NaN" : this._AF_Female); }
+                set { this._AF_Female = (value == null ? "NaN" : value); }
+            }
+            private string _AN_Male;
+            public string AN_Male
+            {
+                get { return (this._AN_Male == null ? "NaN" : this._AN_Male); }
+                set { this._AN_Male = (value == null ? "NaN" : value); }
+            }
+            private string _AF_Male;
+            public string AF_Male
+            {
+                get { return (this._AF_Male == null ? "NaN" : this._AF_Male); }
+                set { this._AF_Male = (value == null ? "NaN" : value); }
+            }
+            private string _FILTER;
+            public string FILTER
+            {
+                get { return (this._FILTER == null ? "NaN" : this._FILTER); }
+                set { this._FILTER = (value == null ? "NaN" : value); }
+            }
+
+        }
+
+
+        #region ScriptResults declaration
+        /// <summary>
+        /// This enum provides a convenient shorthand within the scope of this class for setting the
+        /// result of the script.
+        /// 
+        /// This code was generated automatically.
+        /// </summary>
+        enum ScriptResults
+        {
+            Success = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Success,
+            Failure = Microsoft.SqlServer.Dts.Runtime.DTSExecResult.Failure
+        };
+        #endregion
+
+	}
+}]]></ProjectItem>
+              <ProjectItem
+                Name="ST_df35333bfd6f44558dd6ea39f8643314.csproj"
+                Encoding="UTF8"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{239D3839-AD65-46D2-A8D6-1A6BFB0AF1A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ST_df35333bfd6f44558dd6ea39f8643314</RootNamespace>
+    <AssemblyName>ST_df35333bfd6f44558dd6ea39f8643314</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>true</ResolveAssemblyReferenceIgnoreTargetFrameworkAttributeVersionMismatch>
+    <TargetFrameworkProfile></TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>.\bin\Debug\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <OutputPath>.\bin\Release\</OutputPath>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.SqlServer.ManagedDTS, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.SqlServer.ScriptTask, Version=14.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptMain.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <!-- Include the build rules for a C# project.-->
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}">
+        <ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="cs" TemplatesPath="" />
+        <Host Name="ScriptTask" />
+        <ProjectClient>
+          <HostIdentifier>SSIS_ST140</HostIdentifier>
+        </ProjectClient>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Project"
+                Encoding="UTF16LE"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+  <msb:PropertyGroup>
+    <msb:CodeName>ST_df35333bfd6f44558dd6ea39f8643314</msb:CodeName>
+    <msb:Language>msBuild</msb:Language>
+    <msb:DisplayName>ST_df35333bfd6f44558dd6ea39f8643314</msb:DisplayName>
+    <msb:ProjectId>{1F84A970-CB9E-4464-A610-C6C92F47F07F}</msb:ProjectId>
+  </msb:PropertyGroup>
+  <msb:ItemGroup>
+    <msb:Project Include="ST_df35333bfd6f44558dd6ea39f8643314.csproj" />
+    <msb:File Include="Properties\Settings.settings" />
+    <msb:File Include="Properties\AssemblyInfo.cs" />
+    <msb:File Include="Properties\Resources.resx" />
+    <msb:File Include="Properties\Resources.Designer.cs" />
+    <msb:File Include="Properties\Settings.Designer.cs" />
+    <msb:File Include="ScriptMain.cs" />
+    <msb:Breakpoint Include="b31a5e9499db49b09150c2b3e2c6f53c">
+      <msb:FileName>ScriptMain.cs</msb:FileName>
+      <msb:ColumnNumber>13</msb:ColumnNumber>
+      <msb:Enabled>True</msb:Enabled>
+      <msb:LineNumber>183</msb:LineNumber>
+      <msb:Condition>
+      </msb:Condition>
+      <msb:ConditionType>1</msb:ConditionType>
+      <msb:Language>C#</msb:Language>
+      <msb:HitCountType>1</msb:HitCountType>
+      <msb:HitCountTarget>1</msb:HitCountTarget>
+    </msb:Breakpoint>
+  </msb:ItemGroup>
+</c:Project>]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Settings.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_df35333bfd6f44558dd6ea39f8643314.Properties.Settings.get_Default():ST_df35333bfd6f44558dd6ea39f8643314.Properties.Sett" +
+    "ings")]
+
+namespace ST_df35333bfd6f44558dd6ea39f8643314.Properties {
+    
+    
+    internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
+        
+        [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
+        private static Settings defaultInstance = new Settings();
+        
+        public static Settings Default {
+            get {
+                return defaultInstance;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\AssemblyInfo.cs"
+                Encoding="UTF8"><![CDATA[using System.Reflection;
+using System.Runtime.CompilerServices;
+
+//
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
+//
+[assembly: AssemblyTitle("ST_df35333bfd6f44558dd6ea39f8643314")]
+[assembly: AssemblyDescription("")]
+[assembly: AssemblyConfiguration("")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ST_df35333bfd6f44558dd6ea39f8643314")]
+[assembly: AssemblyCopyright("Copyright @  2020")]
+[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCulture("")]
+//
+// Version information for an assembly consists of the following four values:
+//
+//      Major Version
+//      Minor Version 
+//      Build Number
+//      Revision
+//
+// You can specify all the values or you can default the Revision and Build Numbers 
+// by using the '*' as shown below:
+
+[assembly: AssemblyVersion("1.0.*")]]]></ProjectItem>
+              <ProjectItem
+                Name="Properties\Resources.Designer.cs"
+                Encoding="UTF8"><![CDATA[//------------------------------------------------------------------------------
+// <auto-generated>
+//     This code was generated by a tool.
+//
+//     Changes to this file may cause incorrect behavior and will be lost if
+//     the code is regenerated.
+// </auto-generated>
+//------------------------------------------------------------------------------
+
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_df35333bfd6f44558dd6ea39f8643314.Properties.Resources.get_ResourceManager():System.Resources.Resou" +
+    "rceManager")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_df35333bfd6f44558dd6ea39f8643314.Properties.Resources.get_Culture():System.Globalization.CultureIn" +
+    "fo")]
+[assembly: global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Scope="member", Target="ST_df35333bfd6f44558dd6ea39f8643314.Properties.Resources.set_Culture(System.Globalization.CultureInfo" +
+    "):Void")]
+
+namespace ST_df35333bfd6f44558dd6ea39f8643314.Properties {
+    
+    
+    /// <summary>
+    ///   A strongly-typed resource class, for looking up localized strings, etc.
+    /// </summary>
+    // This class was auto-generated by the StronglyTypedResourceBuilder
+    // class via a tool like ResGen or Visual Studio.
+    // To add or remove a member, edit your .ResX file then rerun ResGen
+    // with the /str option, or rebuild your VS project.
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+    internal class Resources {
+        
+        private static global::System.Resources.ResourceManager resourceMan;
+        
+        private static global::System.Globalization.CultureInfo resourceCulture;
+        
+        [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        internal Resources() {
+        }
+        
+        /// <summary>
+        ///   Returns the cached ResourceManager instance used by this class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if ((resourceMan == null)) {
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ST_df35333bfd6f44558dd6ea39f8643314.Properties.Resources", typeof(Resources).Assembly);
+                    resourceMan = temp;
+                }
+                return resourceMan;
+            }
+        }
+        
+        /// <summary>
+        ///   Overrides the current thread's CurrentUICulture property for all
+        ///   resource lookups using this strongly typed resource class.
+        /// </summary>
+        [global::System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
+                return resourceCulture;
+            }
+            set {
+                resourceCulture = value;
+            }
+        }
+    }
+}]]></ProjectItem>
+              <BinaryItem
+                Name="ST_df35333bfd6f44558dd6ea39f8643314.dll">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
+hghLAU8ARwCZNwAAAACGCFYBEABHAKw3AAAAAIYIJgJPAEgAwjcAAAAAhggxAhAASADVNwAAAACG
+CBACTwBJAOs3AAAAAIYIGwIQAEkA/jcAAAAAhgicAE8ASgAUOAAAAACGCKcAEABKACc4AAAAAIYI
+hgBPAEsAPTgAAAAAhgiRABAASwBQOAAAAACGCD0BTwBMAGY4AAAAAIYIRAEQAEwAeTgAAAAAhgiy
+AE8ATQCPOAAAAACGCLkAEABNAKI4AAAAAIYIkQVPAE4AuDgAAAAAhgifBRAATgDLOAAAAACGCHUF
+TwBPAOE4AAAAAIYIgwUQAE8A9DgAAAAAhghdBU8AUAAKOQAAAACGCGkFEABQAB05AAAAAIYIRQVP
+AFEAMzkAAAAAhghRBRAAUQBGOQAAAACGCKIBTwBSAFw5AAAAAIYIrQEQAFIAhy8AAAAAhhj9DgYA
+UwAAAAEAoQsAAAIAkgwAAAMAEQYAAAQAJQoAAAUA+wIAAAYABgMAAAcAFgMAAAgAJgMAAAEA/wIA
+AAIADQMAAAMAHwMAAAEADQMAAAIAHwMAAAMAmAsAAAEAmAoAAAEAggkAAAEAggkAAAEAggkAAAEA
+ggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkA
+AAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEA
+ggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkA
+AAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEA
+ggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkA
+AAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEA
+ggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkAAAEAggkJAP0OAQARAP0OBgAZAP0OCgAp
+AP0OEAAxAP0OEAA5AP0OEABBAP0OEABJAP0OEABRAP0OEABZAP0OEABhAP0OEABpAP0OBgDRAP0O
+BgDhAP0OBgABAf0OFQB5AP0OBgBxAOcQGwARAX4QIQAZAbcLJwARAeoMLgAhAX8NMgARAe8PQgAp
+AbcLSAAxAW4JLgDJAOEJTwA5AQgAUwBBASIRWAA5AUIAYAARAYARAQBJAYgJlABJAWkLmQBZAXsH
+oABZAQgFEABZAXsGEABZAcQQpwBxAcALrQBZAVsHswB5AaULuQCJAP0OvwCRAf0OxgCZATkGTwCh
+AVcRzQCpAW0HBgCRAP0OBgCRADIQ2QC5Ad4F3wCxAS0D6AAMALcL+QBBASsK/wBBAYcSAwEUAP0O
+BgAcAP0OBgAcAC0DFgEUAC0DFgEUAO8OHAEkAOYRLAFBASIRMQEkACsSOAHhAXUHPAGRABkRQwFB
+AaUJSQFBAZ4JTgEsAFISXAHpAS0DYgEMAPIR/wD5AYIHagH5AaUMBgC5AP0OcAG5APgFEAC5ALkO
+dgG5AGcHBgCxAP0OfAEJAlYGgwEZAv0OBgAZAtIEigGxANAQkAEpAv0OlgEhAi0DnwEpAv0OqAEh
+ArcLsAE5AngJtwEJAncS/wDBADkFTwBBASIRvAFBAkIGwgFBASIRzgFJAmQL1AHpAbcL2gHxAbcL
+4QGhAUcR5gFxAP0OBgDJAP0OBgC5AV4S6wHpAP0O8QEJAf0OBgAIACgBFAIIACwBGQIpAHsANwMu
+AAsADwMuABMAGAMuABsANwMuACMAQAMuACsAaQMuADMAaQMuADsAaQMuAEMAQAMuAEsAbwMuAFMA
+aQMuAFsAhgNDAGMAGQJJAHsANwNjAHMAGQLBAGsAGQLhAGsAGQIBAWsAGQIhAWsAGQJBAWsAGQJh
+AWsAGQLhAWsAGQIAAmsAGQIBAmsAGQIgAmsAGQIhAmsAGQJAAmsAGQJgAmsAGQKAAmsAGQKgAmsA
+GQLgAmsAGQIAA2sAGQIgA2sAGQJAA2sAGQIgBGsAGQJABGsAGQJgBGsAGQKABGsAGQKgBGsAGQLA
+BGsAGQIhBWsAGQJBBWsAGQIBBmsAGQKgCmsAGQLACmsAGQLgCmsAGQIAC2sAGQKADGsAGQKgDGsA
+GQI3AGUAxwEDAAEABAADAAUABAAGAAcABwArAAgAMQAAADcO1QIAAA8H2gIAAHgR3wIAACUK5AIA
+AA0K5AIAAA8R6AIAAJgD8QIAAH8A9QIAAJoG8QIAAKMR8QIAANcO8QIAAOsO5AIAALoQ9QIAAJ8Q
+9QIAABwL8QIAADQL8QIAANIC8QIAAOsL8QIAAJUO8QIAAL8R8QIAAEgK8QIAAGQK8QIAALgG8QIA
+AKsS8QIAABoM8QIAAEMM8QIAAG4M8QIAAB4P8QIAAIcK8QIAAPoE8QIAACIF8QIAAPkN8QIAAEsS
+8QIAAMcH8QIAAI8L8QIAAHgC8QIAAKYC8QIAAG0Q+QIAAGkAAgMAANsG8QIAAM8A8QIAAI8B8QIA
+AI4D8QIAADgR8QIAACAQBwMAAE0Q8QIAAHAD8QIAANgN8QIAAC8B8QIAABkB8QIAAN0B8QIAAMcB
+8QIAAPsA8QIAAOUA8QIAAAkC8QIAAPMB8QIAAHAB8QIAAFoB8QIAADUC8QIAAB8C8QIAAKsA8QIA
+AJUA8QIAAEgB8QIAAL0A8QIAAKMF8QIAAIcF8QIAAG0F8QIAAFUF8QIAALEB8QICAAoAAwACAAsA
+BQABAAwABQACAA0ABwACABAACQABABEACQACABIACwABABMACwACABQADQABABUADQACABcADwAB
+ABgADwACABkAEQABABoAEQACABsAEwABABwAEwACAB0AFQABAB4AFQACAB8AFwABACAAFwACACEA
+GQABACIAGQACACMAGwABACQAGwACACUAHQABACYAHQACACcAHwABACgAHwACACkAIQABACoAIQAC
+ACsAIwABACwAIwACAC0AJQABAC4AJQACAC8AJwABADAAJwACADEAKQABADIAKQACADMAKwABADQA
+KwACADUALQABADYALQACADcALwABADgALwACADkAMQABADoAMQACADsAMwABADwAMwACAD0ANQAB
+AD4ANQACAD8ANwABAEAANwACAEEAOQABAEIAOQACAEMAOwABAEQAOwACAEUAPQABAEYAPQACAEcA
+PwABAEgAPwACAEkAQQABAEoAQQACAEsAQwABAEwAQwACAE0ARQABAE4ARQACAE8ARwABAFAARwAC
+AFEASQABAFIASQACAFMASwABAFQASwACAFUATQABAFYATQACAFcATwABAFgATwACAFkAUQABAFoA
+UQACAFsAUwABAFwAUwACAF0AVQABAF4AVQACAGAAVwABAGEAVwACAGIAWQABAGMAWQACAGQAWwAB
+AGUAWwACAGYAXQABAGcAXQACAGgAXwABAGkAXwACAGoAYQABAGsAYQACAG0AYwABAG4AYwACAG8A
+ZQABAHAAZQACAHEAZwABAHIAZwACAHMAaQABAHQAaQACAHUAawABAHYAawACAHcAbQABAHgAbQAC
+AHkAbwABAHoAbwACAHsAcQABAHwAcQACAH0AcwABAH4AcwACAH8AdQABAIAAdQACAIEAdwABAIIA
+dwACAIMAeQABAIQAeQACAIUAewABAIYAewACAIcAfQABAIgAfQACAIkAfwABAIoAfwACAIsAgQAB
+AIwAgQACAI0AgwABAI4AgwACAI8AhQABAJAAhQACAJEAhwABAJIAhwACAJMAiQABAJQAiQACAJUA
+iwABAJYAiwDyAAkBEAElAVQBBIAAAAEAAAB1Hyh7AAAAAAAAHgAAAAQAAAAAAAAAAAAAAPkBswIA
+AAAADgAAAAAAAAAAAAAAAgKcCgAAAAAEAAAAAAAAAAAAAAD5AYUCAAAAAAYAAAAAAAAAAAAAAAsC
+vA0AAAAABAAAAAAAAAAAAAAA+QHJCwAAAAAOAAAAAAAAAAAAAAACAjwCAAAAAAAAAAABAAAAbg8A
+AAUAAgAGAAIABwACAAgAAgAJAAIAVQDUAAAAAAAATGlzdGAxAFRvSW50MzIASURpY3Rpb25hcnlg
+MgBTVF9kZjM1MzMzYmZkNmY0NDU1OGRkNmVhMzlmODY0MzMxNABUb0ludDY0ADxNb2R1bGU+AEdu
+b21BRABnZXRfZ25vbUFEAHNldF9nbm9tQUQAZ2V0X0ZpbGVJRABzZXRfRmlsZUlEAGdldF9BRl9O
+RkUAc2V0X0FGX05GRQBnZXRfQU5fTkZFAHNldF9BTl9ORkUAZ2V0X0FGAHNldF9BRgBnZXRfQ0xO
+U0lHAHNldF9DTE5TSUcAZ2V0X0FGX09USABzZXRfQUZfT1RIAGdldF9BTl9PVEgAc2V0X0FOX09U
+SABDYWxsQVBJAGdldF9BRl9BU0oAc2V0X0FGX0FTSgBnZXRfQU5fQVNKAHNldF9BTl9BU0oAR2V0
+VVJMAGdldF9BTgBzZXRfQU4AZ2V0X0FGX0ZJTgBzZXRfQUZfRklOAGdldF9BTl9GSU4Ac2V0X0FO
+X0ZJTgBUb0pTT04AZ2V0X0dFTkVJTkZPAHNldF9HRU5FSU5GTwBTeXN0ZW0uSU8AZ2V0X0ZJTFRF
+UgBzZXRfRklMVEVSAGdldF9BRl9BRlIAc2V0X0FGX0FGUgBnZXRfQU5fQUZSAHNldF9BTl9BRlIA
+Z2V0X0FGX0FNUgBzZXRfQUZfQU1SAGdldF9BTl9BTVIAc2V0X0FOX0FNUgBnZXRfQUZfRUFTAHNl
+dF9BRl9FQVMAZ2V0X0FOX0VBUwBzZXRfQU5fRUFTAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuTWFuYWdl
+ZERUUwB2YWx1ZV9fAGdldF9zdHJldGNoX2x0X2EAc2V0X3N0cmV0Y2hfbHRfYQBTeXN0ZW0uRGF0
+YQBnZXRfc3RyZXRjaF9sdF9iAHNldF9zdHJldGNoX2x0X2IAbXNjb3JsaWIAZ2V0X211bHRpX2Fs
+bGVsaWMAc2V0X211bHRpX2FsbGVsaWMAU3lzdGVtLkNvbGxlY3Rpb25zLkdlbmVyaWMAcElkAFVz
+ZXJJZAB1c2VySWQAQ2VudGVySWQAY2VudGVySWQASG9zdElkAGhvc3RJZABBZGQAU3lzdGVtLkNv
+bGxlY3Rpb25zLlNwZWNpYWxpemVkAGdldF9faWQAc2V0X19pZABnZXRfZ2VuZV9pZABzZXRfZ2Vu
+ZV9pZABnZXRfdHJhbnNjcmlwdF9pZABzZXRfdHJhbnNjcmlwdF9pZAA8Z25vbUFEPmtfX0JhY2tp
+bmdGaWVsZAA8RmlsZUlEPmtfX0JhY2tpbmdGaWVsZAA8X2lkPmtfX0JhY2tpbmdGaWVsZAA8bGFz
+dEJhdGNoPmtfX0JhY2tpbmdGaWVsZAA8YmF0Y2g+a19fQmFja2luZ0ZpZWxkADxjaHI+a19fQmFj
+a2luZ0ZpZWxkADxjb25zZXF1ZW5jZV90ZXJtcz5rX19CYWNraW5nRmllbGQAPGdlbmVfYW5ub3Rh
+dGlvbnM+a19fQmFja2luZ0ZpZWxkADxzdG9wX3Bvcz5rX19CYWNraW5nRmllbGQAPHN0YXJ0X3Bv
+cz5rX19CYWNraW5nRmllbGQAPGRvY3VtZW50cz5rX19CYWNraW5nRmllbGQARGJDb21tYW5kAFNx
+bENvbW1hbmQAc2V0X1NlbGVjdENvbW1hbmQAZ2V0X2Zpc2hlcl9zdHJhbmQAc2V0X2Zpc2hlcl9z
+dHJhbmQAc2V0X01ldGhvZABnZXRfdnFzbG9kAHNldF92cXNsb2QAZGVmYXVsdEluc3RhbmNlAGdl
+dF9NZXNzYWdlAGdldF9BRl9NYWxlAHNldF9BRl9NYWxlAGdldF9BTl9NYWxlAHNldF9BTl9NYWxl
+AGdldF9BRl9GZW1hbGUAc2V0X0FGX0ZlbWFsZQBnZXRfQU5fRmVtYWxlAHNldF9BTl9GZW1hbGUA
+RGF0YVRhYmxlAFZhcmlhYmxlAElEaXNwb3NhYmxlAFJ1bnRpbWVUeXBlSGFuZGxlAEdldFR5cGVG
+cm9tSGFuZGxlAENvbnNvbGUAc2V0X0Rlc3RpbmF0aW9uVGFibGVOYW1lAHRibE5hbWUATWljcm9z
+b2Z0LlNxbFNlcnZlci5EdHMuUnVudGltZQBSZWFkTGluZQBXcml0ZUxpbmUAU3FsRGJUeXBlAHNl
+dF9Db21tYW5kVHlwZQBTZWN1cml0eVByb3RvY29sVHlwZQBzZXRfQ29udGVudFR5cGUAZ2V0X3Zf
+dHlwZQBzZXRfdl90eXBlAGdldF9waHJlZF9nZW5vdHlwZQBzZXRfcGhyZWRfZ2Vub3R5cGUAZ2V0
+X3BocmVkX3Njb3JlAHNldF9waHJlZF9zY29yZQBGYWlsdXJlAGdldF9DdWx0dXJlAHNldF9DdWx0
+dXJlAHJlc291cmNlQ3VsdHVyZQBWU1RBUlRTY3JpcHRPYmplY3RNb2RlbEJhc2UAQXBwbGljYXRp
+b25TZXR0aW5nc0Jhc2UASHR0cFdlYlJlc3BvbnNlAEdldFJlc3BvbnNlAENsb3NlAERpc3Bvc2UA
+UGFyc2UAQ3JlYXRlAGdldF9TdGF0ZQBFZGl0b3JCcm93c2FibGVTdGF0ZQBDb25uZWN0aW9uU3Rh
+dGUAZ2V0X3NvbWF0aWNfc3RhdGUAc2V0X3NvbWF0aWNfc3RhdGUAQ29tcGlsZXJHZW5lcmF0ZWRB
+dHRyaWJ1dGUARGVidWdnZXJOb25Vc2VyQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dhYmxlQXR0cmlidXRl
+AEVkaXRvckJyb3dzYWJsZUF0dHJpYnV0ZQBBc3NlbWJseVRpdGxlQXR0cmlidXRlAEFzc2VtYmx5
+VHJhZGVtYXJrQXR0cmlidXRlAFRhcmdldEZyYW1ld29ya0F0dHJpYnV0ZQBBc3NlbWJseUNvbmZp
+Z3VyYXRpb25BdHRyaWJ1dGUAQXNzZW1ibHlEZXNjcmlwdGlvbkF0dHJpYnV0ZQBDb21waWxhdGlv
+blJlbGF4YXRpb25zQXR0cmlidXRlAEFzc2VtYmx5UHJvZHVjdEF0dHJpYnV0ZQBBc3NlbWJseUNv
+cHlyaWdodEF0dHJpYnV0ZQBTU0lTU2NyaXB0VGFza0VudHJ5UG9pbnRBdHRyaWJ1dGUAQXNzZW1i
+bHlDb21wYW55QXR0cmlidXRlAFJ1bnRpbWVDb21wYXRpYmlsaXR5QXR0cmlidXRlAGdldF9WYWx1
+ZQBzZXRfVmFsdWUAdmFsdWUAc2V0X0V4cGVjdDEwMENvbnRpbnVlAFJlbW92ZQBMYXN0SW5kZXhP
+ZgBsYXN0QmF0Y2hEZWYAYmF0Y2hEZWYAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBUb1N0cmlu
+ZwBjb25uZWN0aW9uc3RyaW5nAGdldF9sYXN0QmF0Y2gAc2V0X2xhc3RCYXRjaABnZXRfYmF0Y2gA
+c2V0X2JhdGNoAGdldF9MZW5ndGgAZ2V0X3JlZl9kZXB0aABzZXRfcmVmX2RlcHRoAGdldF9hbHRf
+ZGVwdGgAc2V0X2FsdF9kZXB0aABnZXRfcXVhbGl0eV9ieV9kZXB0aABzZXRfcXVhbGl0eV9ieV9k
+ZXB0aABvYmoATWljcm9zb2Z0LlNxbFNlcnZlci5TY3JpcHRUYXNrAE1pY3Jvc29mdC5TcWxTZXJ2
+ZXIuRHRzLlRhc2tzLlNjcmlwdFRhc2sAU2NyaXB0T2JqZWN0TW9kZWwAU3lzdGVtLkNvbXBvbmVu
+dE1vZGVsAGdldF9yZWZfYWxsAHNldF9yZWZfYWxsAGdldF9hbHRfYWxsAHNldF9hbHRfYWxsAFNU
+X2RmMzUzMzNiZmQ2ZjQ0NTU4ZGQ2ZWEzOWY4NjQzMzE0LmRsbABGaWxsAHNldF9TZWN1cml0eVBy
+b3RvY29sAGdldF9kZWx0YV9wbABzZXRfZGVsdGFfcGwARXh0cmFVcmwAdXJsAEdldFJlc3BvbnNl
+U3RyZWFtAGdldF9JdGVtAHNldF9JdGVtAFN5c3RlbQBnZXRfcGhyZWRfcG9seW1vcnBoaXNtAHNl
+dF9waHJlZF9wb2x5bW9ycGhpc20ARW51bQBnZXRfYmFzZV9xX3JhbmtzdW0Ac2V0X2Jhc2VfcV9y
+YW5rc3VtAGdldF9tYXBwaW5nX3FfcmFua3N1bQBzZXRfbWFwcGluZ19xX3JhbmtzdW0AZ2V0X3Jl
+YWRfcG9zX3JhbmtzdW0Ac2V0X3JlYWRfcG9zX3JhbmtzdW0AcmVzb3VyY2VNYW4ASlRva2VuAGF1
+dGhUb2tlbgBHZXRUb2tlbgBPcGVuAFNjcmlwdE1haW4ARGF0YUNvbHVtbgBTeXN0ZW0uQ29uZmln
+dXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlvbgBnZXRfVHJhbnNhY3Rpb24AU3lzdGVtLlJlZmxl
+Y3Rpb24ATmFtZVZhbHVlQ29sbGVjdGlvbgBEYXRhQ29sdW1uQ29sbGVjdGlvbgBXZWJIZWFkZXJD
+b2xsZWN0aW9uAFNxbFBhcmFtZXRlckNvbGxlY3Rpb24ARGF0YVJvd0NvbGxlY3Rpb24ARGJDb25u
+ZWN0aW9uAEFjcXVpcmVDb25uZWN0aW9uAFNxbENvbm5lY3Rpb24ARXhjZXB0aW9uAFN5c3RlbS5E
+YXRhLkNvbW1vbgBOZXd0b25zb2Z0Lkpzb24AZ2V0X2NzbgBzZXRfY3NuAEN1bHR1cmVJbmZvAGdl
+dF9ndF9yYXRpbwBzZXRfZ3RfcmF0aW8ATmV3dG9uc29mdC5Kc29uLkxpbnEAU3RyZWFtUmVhZGVy
+AEpzb25UZXh0UmVhZGVyAGdldF9SZXNvdXJjZU1hbmFnZXIAQ29ubmVjdGlvbk1hbmFnZXIAU2Vy
+dmljZVBvaW50TWFuYWdlcgBEYlBhcmFtZXRlcgBTcWxQYXJhbWV0ZXIAZ2V0X2ZpbHRlcgBzZXRf
+ZmlsdGVyAERiRGF0YUFkYXB0ZXIAU3FsRGF0YUFkYXB0ZXIAV3JpdGVUb1NlcnZlcgBnZXRfdmNm
+X2NocgBzZXRfdmNmX2NocgBnZXRfY2hyAHNldF9jaHIAR2V0RW51bWVyYXRvcgAuY3RvcgAuY2N0
+b3IAZ2V0X3N0cmFuZF9iaWFzAHNldF9zdHJhbmRfYmlhcwBTeXN0ZW0uRGlhZ25vc3RpY3MAU3lz
+dGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNlcwBTeXN0ZW0uUmVzb3VyY2VzAFNUX2RmMzUzMzNi
+ZmQ2ZjQ0NTU4ZGQ2ZWEzOWY4NjQzMzE0LlByb3BlcnRpZXMuUmVzb3VyY2VzLnJlc291cmNlcwBE
+ZWJ1Z2dpbmdNb2RlcwBTVF9kZjM1MzMzYmZkNmY0NDU1OGRkNmVhMzlmODY0MzMxNC5Qcm9wZXJ0
+aWVzAGdldF9WYXJpYWJsZXMAU2V0dGluZ3MAZ2V0X2NvbnNlcXVlbmNlX3Rlcm1zAHNldF9jb25z
+ZXF1ZW5jZV90ZXJtcwBnZXRfQ29sdW1ucwBnZXRfY29kb25zAHNldF9jb2RvbnMAZ2V0X2dlbmVf
+YW5ub3RhdGlvbnMAc2V0X2dlbmVfYW5ub3RhdGlvbnMAZ2V0X0Nvbm5lY3Rpb25zAGdldF9zdG9w
+X3BvcwBzZXRfc3RvcF9wb3MAZ2V0X3N0YXJ0X3BvcwBzZXRfc3RhcnRfcG9zAGdldF9IZWFkZXJz
+AGdldF9QYXJhbWV0ZXJzAFN1Y2Nlc3MAZ2V0X0R0cwBTY3JpcHRSZXN1bHRzAGdldF9kb2N1bWVu
+dHMAc2V0X2RvY3VtZW50cwBnZXRfUm93cwBDb25jYXQAZ2V0X2ltcGFjdABzZXRfaW1wYWN0AEpP
+YmplY3QAU2VyaWFsaXplT2JqZWN0AERlc2VyaWFsaXplT2JqZWN0AFN5c3RlbS5OZXQAZ2V0X0Rl
+ZmF1bHQAc2V0X1Rhc2tSZXN1bHQAZ2V0X25vbl92YXJpYW50AHNldF9ub25fdmFyaWFudABnZXRf
+YWx0X2NudABzZXRfYWx0X2NudABTeXN0ZW0uRGF0YS5TcWxDbGllbnQARG9jdW1lbnQAZ2V0X0N1
+cnJlbnQAZ2V0X0NvdW50AFJvb3QASnNvbkNvbnZlcnQASHR0cFdlYlJlcXVlc3QAZ2VuZUFubm90
+X2xpc3QATW92ZU5leHQARGF0YVJvdwBnZXRfcGxvaWR5AHNldF9wbG9pZHkAQ29udGFpbnNLZXkA
+Z2V0X0Fzc2VtYmx5AFNxbEJ1bGtDb3B5AEV4ZWN1dGVOb25RdWVyeQBvcF9FcXVhbGl0eQBnZXRf
+bWFwcGluZ19xdWFsaXR5AHNldF9tYXBwaW5nX3F1YWxpdHkAAAAtTABvAGMAYQBsAEgAbwBzAHQA
+LgBXAGkATgBHAFMAXwBEAGIAXwBEAGUAdgAAF1UAcwBlAHIAOgA6AEIAYQB0AGMAaAAAH1UAcwBl
+AHIAOgA6AEwAYQBzAHQAQgBhAHQAYwBoAAAdVQBzAGUAcgA6ADoAQwBlAG4AdABlAHIASQBkAAAZ
+VQBzAGUAcgA6ADoAVQBzAGUAcgBJAGQAABNVAHMAZQByADoAOgBQAEkAZAAAG1UAcwBlAHIAOgA6
+AFQAYgBsAE4AYQBtAGUAABlVAHMAZQByADoAOgBIAG8AcwB0AEkAZAAAF3EAdQBlAHIAeQBCAGEA
+dABjAGgALwAAAy8AAAdHAEUAVAAAIWEAcABwAGwAaQBjAGEAdABpAG8AbgAvAGoAcwBvAG4AABtB
+AHUAdABoAG8AcgBpAHoAYQB0AGkAbwBuAAAJQABfAGkAZAAAD0AARgBpAGwAZQBJAEQAAA9AAHYA
+XwB0AHkAcABlAAAZQABuAG8AbgBfAHYAYQByAGkAYQBuAHQAABFAAHYAYwBmAF8AYwBoAHIAAAlA
+AGMAaAByAAAVQABzAHQAYQByAHQAXwBwAG8AcwAAE0AAcwB0AG8AcABfAHAAbwBzAAARQAByAGUA
+ZgBfAGEAbABsAAARQABhAGwAdABfAGEAbABsAAAdQABtAHUAbAB0AGkAXwBhAGwAbABlAGwAaQBj
+AAAnQABwAGgAcgBlAGQAXwBwAG8AbAB5AG0AbwByAHAAaABpAHMAbQAAD0AAZgBpAGwAdABlAHIA
+ABFAAGEAbAB0AF8AYwBuAHQAABVAAHIAZQBmAF8AZABlAHAAdABoAAAVQABhAGwAdABfAGQAZQBw
+AHQAaAAAH0AAcABoAHIAZQBkAF8AZwBlAG4AbwB0AHkAcABlAAAhQABtAGEAcABwAGkAbgBnAF8A
+cQB1AGEAbABpAHQAeQAAH0AAYgBhAHMAZQBfAHEAXwByAGEAbgBrAHMAdQBtAAAlQABtAGEAcABw
+AGkAbgBnAF8AcQBfAHIAYQBuAGsAcwB1AG0AACNAAHIAZQBhAGQAXwBwAG8AcwBfAHIAYQBuAGsA
+cwB1AG0AABlAAHMAdAByAGEAbgBkAF8AYgBpAGEAcwAAI0AAcQB1AGEAbABpAHQAeQBfAGIAeQBf
+AGQAZQBwAHQAaAAAHUAAZgBpAHMAaABlAHIAXwBzAHQAcgBhAG4AZAAAD0AAdgBxAHMAbABvAGQA
+ABNAAGcAdABfAHIAYQB0AGkAbwAAD0AAcABsAG8AaQBkAHkAAB1AAHMAbwBtAGEAdABpAGMAXwBz
+AHQAYQB0AGUAABNAAGQAZQBsAHQAYQBfAHAAbAAAG0AAcwB0AHIAZQB0AGMAaABfAGwAdABfAGEA
+ABtAAHMAdAByAGUAdABjAGgAXwBsAHQAXwBiAAAjQABnAGUAbgBlAF8AYQBuAG4AbwB0AGEAdABp
+AG8AbgBzAAAPQABnAG4AbwBtAEEARAAAD0AAQwBMAE4AUwBJAEcAABNAAEcARQBOAEUASQBOAEYA
+TwAAGUAAcABoAHIAZQBkAF8AcwBjAG8AcgBlAAAHTgBhAE4AAAluAHUAbABsAAALTgBhAE4AIAAs
+AAADLAAADUMATABOAFMASQBHAAARRwBFAE4ARQBJAE4ARgBPAAAvWwBXAGkATgBHAFMAXwBEAGEA
+dABhAF8ARABiAF0ALgBbAGQAYgBvAF0ALgBbAAADXQAAW1MAcABfAEYAaQBsAHQAZQByAF8AUgBl
+AHMAdQBsAHQAXwBTAGkAbgBnAGwAZQBTAGEAbQBwAGwAZQBfAFMAdABhAHQAdQBzAF8ARABvAG4A
+ZQBfAFUAcABkAAARQABUAGIAbABOAGEAbQBlAAAJQABQAEkAZAAADUAAQgBhAHQAYwBoAAAVQABM
+AGEAcwB0AEIAYQB0AGMAaAAAD0AAVQBzAGUAcgBJAEQAABNAAEMAZQBuAHQAZQByAEkARAAAD0AA
+SABvAHMAdABJAEQAAE1VAG4AYQBiAGwAZQAgAHQAbwAgAGMAaABhAG4AZwBlACAAdABoAGUAIABz
+AHQAYQB0AHUAcwAhACAAUgBlAGUAYQBzAG8AbgA6ACAAADVVAG4AYQBiAGwAZQAgAHQAbwAgAGkA
+bgBzAGUAcgB0ACEAIABSAGUAYQBzAG8AbgA6ACAAADNTAGUAbABlAGMAdAAgAGQAYgBvAC4ARgBu
+AGMAXwBBAFAASQBfAFQAbwBrAGUAbgAoAAAFLAAgAAADKQAAQXMAZQBsAGUAYwB0ACAAWwBkAGIA
+bwBdAC4AWwBGAG4AYwBfAEEAUABJAF8ASQBQAEMAZQBuAHQAZQByAF0AKAAAcVMAVABfAGQAZgAz
+ADUAMwAzADMAYgBmAGQANgBmADQANAA1ADUAOABkAGQANgBlAGEAMwA5AGYAOAA2ADQAMwAzADEA
+NAAuAFAAcgBvAHAAZQByAHQAaQBlAHMALgBSAGUAcwBvAHUAcgBjAGUAcwAAAAAAVxdFsc7XLkSS
+jUoGLWMNewAEIAEBCAMgAAEFIAEBEREEIAEBDgUgAQERfQUgABKAiQUgABKAjQYgARKAkRwDIAAc
+BCABHBwKBwgODg4ODg4ODgUgABKAlQYgARKAmRwDIAAOBAABCA4HAAQODg4ODgQAAQoOLgcOFRJB
+ARIYEkUSFBJJFRJBARIcEiAIFRJNAg4SURURVQESHBIcElkSXRJhEmEEAAEBAgYAAQERgKkGAAES
+gK0OBSAAEoC1BSACAQ4OBSAAEoC9BSAAEoDFBiABARKAxQYgAQESgM0GEAEBHgAOBAoBEhQFIAAS
+gNkIAAESgN0RgOEJIAISgOUOEoDdBhUSQQESGAUgARMACAMgAAgFAAICDg4GFRJBARIcBRUSQQEO
+BSABARMACCAAFRFVARMABhURVQESHAQgABMABgADDg4ODgMgAAIGAAESgPEOBSAAEoD1BCABCA4F
+IAIOCAgHFRJNAg4SUQUgAQITAAcgARKA+R0cBSAAEYEBBSABARI9BSABARJJBiACAQ4SPQYgAQER
+gQkFIAEBElkFIAASgREIIAMBDhGBGQgIIAESgRUSgRUHIAIBDhGBGQYgARKBFQ4EIAEBHAUAAg4O
+DgQAAQEOBgcCElkSSQUAAQ4dHAUgAQgSSQYgARKA+QgEIAEcCAQAAQ4cBSAAEoEpByACAQ4SgSkI
+t3pcVhk04IkIiYRdzYCAzJEIMK1P5rKmru0EAAAAAAQBAAAAAgYOAgYIAwYSdQMGEnkDBhIQBwYV
+EkEBEhgCBgoHBhUSQQESHAMGEiAGBhUSQQEOAwYRJAMAAAEEIAASPQsgCAEODg4ICggICAYgAw4I
+CAgGIAMOCAgOBAAAEnUEAAASeQUAAQESeQQAABIQCCAAFRJBARIYCSABARUSQQESGAMgAAoEIAEB
+CgggABUSQQESHAkgAQEVEkEBEhwEIAASIAUgAQESIAcgABUSQQEOCCABARUSQQEOBAgAEnUECAAS
+eQQIABIQAygACAgoABUSQQESGAMoAA4DKAAKCCgAFRJBARIcBCgAEiAHKAAVEkEBDggBAAgAAAAA
+AB4BAAEAVAIWV3JhcE5vbkV4Y2VwdGlvblRocm93cwEIAQACAAAAAAAoAQAjU1RfZGYzNTMzM2Jm
+ZDZmNDQ1NThkZDZlYTM5Zjg2NDMzMTQAAAUBAAAAABYBABFDb3B5cmlnaHQgQCAgMjAyMAAASQEA
+Gi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC41AQBUDhRGcmFtZXdvcmtEaXNwbGF5TmFtZRIuTkVU
+IEZyYW1ld29yayA0LjW0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VS
+ZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGlj
+S2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJj
+ZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAbHAAAAAAAAAAAAAAhnAAAAAgAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAHhwAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAA
+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAAAYAACAAAAAAAAAAAAAAAAAAAABAAEA
+AAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWIAAABoEAAAAAAAAAAAAABoENAAAAFYAUwBf
+AFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+AAABAAAAAQAoe3UfAAABACh7dR8/AAAA
+AAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBhAHIARgBpAGwAZQBJAG4AZgBvAAAAAAAk
+AAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAAsAR6AwAAAQBTAHQAcgBpAG4AZwBGAGkA
+bABlAEkAbgBmAG8AAABWAwAAAQAwADAAMAAwADAANABiADAAAAAaAAEAAQBDAG8AbQBtAGUAbgB0
+AHMAAAAAAAAAIgABAAEAQwBvAG0AcABhAG4AeQBOAGEAbQBlAAAAAAAAAAAAcAAkAAEARgBpAGwA
+ZQBEAGUAcwBjAHIAaQBwAHQAaQBvAG4AAAAAAFMAVABfAGQAZgAzADUAMwAzADMAYgBmAGQANgBm
+ADQANAA1ADUAOABkAGQANgBlAGEAMwA5AGYAOAA2ADQAMwAzADEANAAAAD4ADwABAEYAaQBsAGUA
+VgBlAHIAcwBpAG8AbgAAAAAAMQAuADAALgA4ADAANQAzAC4AMwAxADUAMgA4AAAAAABwACgAAQBJ
+AG4AdABlAHIAbgBhAGwATgBhAG0AZQAAAFMAVABfAGQAZgAzADUAMwAzADMAYgBmAGQANgBmADQA
+NAA1ADUAOABkAGQANgBlAGEAMwA5AGYAOAA2ADQAMwAzADEANAAuAGQAbABsAAAASAASAAEATABl
+AGcAYQBsAEMAbwBwAHkAcgBpAGcAaAB0AAAAQwBvAHAAeQByAGkAZwBoAHQAIABAACAAIAAyADAA
+MgAwAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBP
+AHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBUAF8AZABmADMANQAzADMAMwBiAGYA
+ZAA2AGYANAA0ADUANQA4AGQAZAA2AGUAYQAzADkAZgA4ADYANAAzADMAMQA0AC4AZABsAGwAAABo
+ACQAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAVABfAGQAZgAzADUAMwAzADMAYgBmAGQA
+NgBmADQANAA1ADUAOABkAGQANgBlAGEAMwA5AGYAOAA2ADQAMwAzADEANAAAAEIADwABAFAAcgBv
+AGQAdQBjAHQAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOAAwADUAMwAuADMAMQA1ADIAOAAAAAAA
+RgAPAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AOAAwADUAMwAu
+ADMAMQA1ADIAOAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAHAAAAwAAACYMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAA=</BinaryItem>
+              <Breakpoint
+                Enabled="True"
+                File="ScriptMain.cs"
+                Line="183"
+                Column="13" />
+            </ScriptProject>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{F2274E75-CA3E-4061-948A-2626F6903E78}"
+          DTS:From="Package\Foreach Loop Container\ExecSqlTask_ChangeState_From_Preprogress_To_Progress"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Script Task" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{6A4D2BAD-E504-41A4-BD8F-61DF8DD8360C}"
+          DTS:ObjectName="{6A4D2BAD-E504-41A4-BD8F-61DF8DD8360C}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::TblName" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{99B123E7-CB7E-49C1-9AA4-3052E50C5210}"
+          DTS:ObjectName="{99B123E7-CB7E-49C1-9AA4-3052E50C5210}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::PId" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{65B0D1F7-D183-4A84-9973-FFA8AED3B73C}"
+          DTS:ObjectName="{65B0D1F7-D183-4A84-9973-FFA8AED3B73C}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::Batch" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{D28E3837-D310-4CC4-B7A8-19734325AC05}"
+          DTS:ObjectName="{D28E3837-D310-4CC4-B7A8-19734325AC05}"
+          DTS:ValueIndex="3"
+          DTS:VariableName="User::LastBatch" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{536FA329-CAE4-4E60-B95E-4E0C00E89CE0}"
+          DTS:ObjectName="{536FA329-CAE4-4E60-B95E-4E0C00E89CE0}"
+          DTS:ValueIndex="4"
+          DTS:VariableName="User::State" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{67DF0201-9192-49F2-866F-770B41FA78FA}"
+          DTS:ObjectName="{67DF0201-9192-49F2-866F-770B41FA78FA}"
+          DTS:ValueIndex="5"
+          DTS:VariableName="User::UserId" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{68421843-D9B1-43BB-9015-F9194A358C3A}"
+          DTS:ObjectName="{68421843-D9B1-43BB-9015-F9194A358C3A}"
+          DTS:ValueIndex="6"
+          DTS:VariableName="User::CenterId" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{E3E6BC8F-BAA4-47D4-84C5-0DC00891355F}"
+          DTS:ObjectName="{E3E6BC8F-BAA4-47D4-84C5-0DC00891355F}"
+          DTS:ValueIndex="7"
+          DTS:VariableName="User::HostId" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\List_of_progressState_items"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5E9CA141-675E-46D9-B1E9-958DED9B7BAA}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="List_of_progressState_items"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="[ADOReadyToProcess].[SqlCommand]">@[$Package::List_of_progressState_items_ADOReadyToProcessSqlCommand]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\List_of_progressState_items\ADOReadyToProcess"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADOReadyToProcess"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TblName, PId, Batch, LastBatch, State, UserId, CenterId, HostId 
+FROM  Tbl_Filter_Result_SingleSample_Batch_Tracking
+WHERE (State = 'preprogress')</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\List_of_progressState_items\ADOReadyToProcess.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.WiNGS_Db_Dev]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.WiNGS_Db_Dev]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[TblName]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[TblName]"
+                      length="100"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[TblName]"
+                      name="TblName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[PId]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[PId]"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[PId]"
+                      name="PId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[Batch]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[Batch]"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[Batch]"
+                      name="Batch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[LastBatch]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[LastBatch]"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[LastBatch]"
+                      name="LastBatch"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[State]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[State]"
+                      length="50"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[State]"
+                      name="State"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[UserId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[UserId]"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[UserId]"
+                      name="UserId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[CenterId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[CenterId]"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[CenterId]"
+                      name="CenterId"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[HostId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[HostId]"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[HostId]"
+                      name="HostId"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[TblName]"
+                      dataType="wstr"
+                      length="100"
+                      name="TblName" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[PId]"
+                      dataType="i8"
+                      name="PId" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[Batch]"
+                      dataType="i4"
+                      name="Batch" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[LastBatch]"
+                      dataType="i4"
+                      name="LastBatch" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[State]"
+                      dataType="wstr"
+                      length="50"
+                      name="State" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[UserId]"
+                      dataType="i4"
+                      name="UserId" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[CenterId]"
+                      dataType="i4"
+                      name="CenterId" />
+                    <externalMetadataColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].ExternalColumns[HostId]"
+                      dataType="i4"
+                      name="HostId" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[TblName]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[TblName]"
+                      name="TblName" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[PId]"
+                      dataType="i8"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[PId]"
+                      name="PId" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[Batch]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[Batch]"
+                      name="Batch" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[LastBatch]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[LastBatch]"
+                      name="LastBatch" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[State]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[State]"
+                      name="State" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[UserId]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[UserId]"
+                      name="UserId" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[CenterId]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[CenterId]"
+                      name="CenterId" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[HostId]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[HostId]"
+                      name="HostId" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\List_of_progressState_items\RecordsetReadyToProcess"
+              componentClassID="Microsoft.RecordsetDestination"
+              contactInfo="Recordset Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates and populates an in-memory ADO recordset that is available outside of the data flow. Scripts and other package elements can use the recordset. For example, use a recordset to store the names of files that will be loaded into the data warehouse."
+              name="RecordsetReadyToProcess">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the recordset."
+                  name="VariableName">User::States</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input]"
+                  hasSideEffects="true"
+                  name="Recordset Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[TblName]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="TblName"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[TblName]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[PId]"
+                      cachedDataType="i8"
+                      cachedName="PId"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[PId]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[Batch]"
+                      cachedDataType="i4"
+                      cachedName="Batch"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[Batch]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[LastBatch]"
+                      cachedDataType="i4"
+                      cachedName="LastBatch"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[LastBatch]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[State]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="State"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[State]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[UserId]"
+                      cachedDataType="i4"
+                      cachedName="UserId"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[UserId]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[CenterId]"
+                      cachedDataType="i4"
+                      cachedName="CenterId"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[CenterId]" />
+                    <inputColumn
+                      refId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input].Columns[HostId]"
+                      cachedDataType="i4"
+                      cachedName="HostId"
+                      lineageId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output].Columns[HostId]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\List_of_progressState_items.Paths[ADO NET Source Output]"
+              endId="Package\List_of_progressState_items\RecordsetReadyToProcess.Inputs[Recordset Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\List_of_progressState_items\ADOReadyToProcess.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{B2A8D5E3-AB9A-45E0-9215-E64771E9C762}"
+      DTS:From="Package\List_of_progressState_items"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{85AAB4DD-1D69-4EF2-9370-A01FFB5C0C14}"
+      DTS:From="Package\ExecSqlTask_ChangeState_To_Preprogress"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\List_of_progressState_items" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="282,42"
+          Id="Package\ExecSqlTask_ChangeState_To_Preprogress"
+          TopLeft="12,175" />
+        <NodeLayout
+          Size="358,42"
+          Id="Package\Foreach Loop Container\ExecSqlTask_ChangeState_From_Preprogress_To_Progress"
+          TopLeft="45,112.5" />
+        <NodeLayout
+          Size="131,42"
+          Id="Package\Foreach Loop Container\Script Task"
+          TopLeft="44.6666666666667,34.6666666666667" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="224,112.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-113.833333333333,-35.8333333333333"
+              Start="0,0"
+              End="-113.833333333333,-28.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-13.9166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-13.9166666666667"
+                    Point2="0,-17.9166666666667"
+                    Point3="-4,-17.9166666666667" />
+                  <mssgle:LineSegment
+                    End="-109.833333333333,-17.9166666666667" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-109.833333333333,-17.9166666666667"
+                    Point2="-113.833333333333,-17.9166666666667"
+                    Point3="-113.833333333333,-21.9166666666667" />
+                  <mssgle:LineSegment
+                    End="-113.833333333333,-28.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="433,210"
+          Size="433,253"
+          Id="Package\Foreach Loop Container"
+          TopLeft="243.333333333333,238.166666666667" />
+        <NodeLayout
+          Size="212,42"
+          Id="Package\List_of_progressState_items"
+          TopLeft="46.5,43.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="186.5,85.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="273.333333333333,152.666666666667"
+              Start="0,0"
+              End="273.333333333333,145.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.7528089887642" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,57.7528089887642"
+                    Point2="0,61.7528089887642"
+                    Point3="4,61.7528089887642" />
+                  <mssgle:LineSegment
+                    End="269.333333333333,61.7528089887642" />
+                  <mssgle:CubicBezierSegment
+                    Point1="269.333333333333,61.7528089887642"
+                    Point2="273.333333333333,61.7528089887642"
+                    Point3="273.333333333333,65.7528089887642" />
+                  <mssgle:LineSegment
+                    End="273.333333333333,145.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="153,175">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-34.5,-89.5"
+              Start="0,0"
+              End="-34.5,-82">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-49.2977528089888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-49.2977528089888"
+                    Point2="0,-53.2977528089888"
+                    Point3="-4,-53.2977528089888" />
+                  <mssgle:LineSegment
+                    End="-30.5,-53.2977528089888" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-30.5,-53.2977528089888"
+                    Point2="-34.5,-53.2977528089888"
+                    Point3="-34.5,-57.2977528089888" />
+                  <mssgle:LineSegment
+                    End="-34.5,-82" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\List_of_progressState_items">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202,42"
+          Id="Package\List_of_progressState_items\RecordsetReadyToProcess"
+          TopLeft="331.666666666667,234.166666666667" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\List_of_progressState_items\ADOReadyToProcess"
+          TopLeft="41.5,45.5" />
+        <EdgeLayout
+          Id="Package\List_of_progressState_items.Paths[ADO NET Source Output]"
+          TopLeft="130,87.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="302.916666666667,146.666666666667"
+              Start="0,0"
+              End="302.916666666667,139.166666666667">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.3333333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,69.3333333333335"
+                    Point2="0,73.3333333333335"
+                    Point3="4,73.3333333333335" />
+                  <mssgle:LineSegment
+                    End="298.916666666667,73.3333333333335" />
+                  <mssgle:CubicBezierSegment
+                    Point1="298.916666666667,73.3333333333335"
+                    Point2="302.916666666667,73.3333333333335"
+                    Point3="302.916666666667,77.3333333333335" />
+                  <mssgle:LineSegment
+                    End="302.916666666667,139.166666666667" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\List_of_progressState_items\ADOReadyToProcess">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
